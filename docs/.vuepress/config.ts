@@ -1,5 +1,9 @@
 import { defaultTheme } from 'vuepress'
 import { searchPlugin } from '@vuepress/plugin-search'
+import { backToTopPlugin } from '@vuepress/plugin-back-to-top'
+import { nextTick } from 'vue'
+import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
+
 
 export default {
   title: '惊涵系统U盘',
@@ -36,15 +40,52 @@ export default {
   }),
 //搜索
  plugins: [
+	 backToTopPlugin(),
      searchPlugin({
        locales: {
-         '/': {
+         '/guide/': {
            placeholder: '搜索',
          },
        },
 	   isSearchable: (page) => page.path !== '/',
-	   // 允许搜索 Frontmatter 中的 `tags`
-	   getExtraFields: (page) => page.frontmatter.tags ?? [],
+	   getExtraFields: (page) => page.page ?? [],
      }),
    ],
+   setup() {
+       const zoom = useMediumZoom()
+   
+       // ... 进行了一些操作，在当前页面添加了新的图片
+   
+       // 此时你可能需要手动调用 `refresh` 来让这些新图片支持缩放
+       nextTick(() => {
+         zoom.refresh()
+       })
+     },
+}
+export interface HotKeyOptions {
+  /**
+   * Value of `event.key` to trigger the hot key
+   */
+  key: string
+
+  /**
+   * Whether to press `event.altKey` at the same time
+   *
+   * @default false
+   */
+  alt?: boolean
+
+  /**
+   * Whether to press `event.ctrlKey` at the same time
+   *
+   * @default false
+   */
+  ctrl?: boolean
+
+  /**
+   * Whether to press `event.shiftKey` at the same time
+   *
+   * @default false
+   */
+  shift?: boolean
 }
