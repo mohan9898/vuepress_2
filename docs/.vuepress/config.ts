@@ -1,10 +1,11 @@
 import { defaultTheme } from 'vuepress'
+import { searchPlugin } from '@vuepress/plugin-search'
 
 export default {
+  title: '惊涵系统U盘',
+  head: [['link', { rel: 'icon', href: 'https://sihengl.gitee.io/jinghan/logo/Upan.png' }]],
   theme: defaultTheme({
-	title: '惊涵系统U盘',
-    logo: 'https://sihengl.gitee.io/jinghan/logo/Upan.png',
-	head: [['link', { rel: 'icon', href: 'https://sihengl.gitee.io/jinghan/logo/Upan.png' }]],
+	logo: 'https://sihengl.gitee.io/jinghan/logo/Upan.png',
 	home: '/',
 	navbar: [
 	      // NavbarItem
@@ -34,9 +35,16 @@ export default {
     },
   }),
 //搜索
-//   plugins: [
-//      docsearchPlugin({
-//        // 配置项
-//      }),
-//    ],
+ plugins: [
+     searchPlugin({
+       locales: {
+         '/': {
+           placeholder: '搜索',
+         },
+       },
+	   isSearchable: (page) => page.path !== '/',
+	   // 允许搜索 Frontmatter 中的 `tags`
+	   getExtraFields: (page) => page.frontmatter.tags ?? [],
+     }),
+   ],
 }
