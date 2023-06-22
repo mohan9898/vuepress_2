@@ -6,10 +6,11 @@ import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 
 
 export default {
-  contributors: false,
+
   title: '惊涵系统U盘',
   head: [['link', { rel: 'icon', href: 'https://sihengl.gitee.io/jinghan/logo/Upan.png' }]],
   theme: defaultTheme({
+	contributors: false,
 	logo: 'https://sihengl.gitee.io/jinghan/logo/Upan.png',
 	home: '/',
 	navbar: [
