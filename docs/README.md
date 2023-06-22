@@ -1,4 +1,5 @@
 ---
+Contributors: false
 home: true
 heroImage: https://sihengl.gitee.io/jinghan/logo/Upan.png
 heroText: 惊涵系统U盘
