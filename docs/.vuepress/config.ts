@@ -30,7 +30,7 @@ export default {
            '/guide/': [
              {
                text: 'U盘手册',
-			   collapsible: true,
+	       collapsible: true,
                children: ['/guide/产品前言.md', '/guide/操作手册.md'],
              },
            ],
