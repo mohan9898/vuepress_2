@@ -11,7 +11,7 @@ export default {
   head: [['link', { rel: 'icon', href: 'https://sihengl.gitee.io/jinghan/logo/Upan.png' }]],
   theme: defaultTheme({
 	contributors: false,
-	lastUpdated: false
+	lastUpdated: false,
 	logo: 'https://sihengl.gitee.io/jinghan/logo/Upan.png',
 	home: '/',
 	navbar: [
